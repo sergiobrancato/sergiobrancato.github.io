@@ -82,8 +82,6 @@ export function HamburgerMenu({ navItems, onNavClick }: HamburgerMenuProps) {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
       // Find which section is currently in view
       navItems.forEach((item) => {
         if (item.ref.current) {

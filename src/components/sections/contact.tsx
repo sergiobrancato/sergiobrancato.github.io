@@ -8,8 +8,9 @@ export default function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <p className="text-lg mb-6">
-            I'm always open to new opportunities and collaborations. Feel free
-            to reach out if you have a project in mind or just want to connect!
+            I`&apos;`m always open to new opportunities and collaborations. Feel
+            free to reach out if you have a project in mind or just want to
+            connect!
           </p>
           <div className="space-y-4">
             <div className="flex items-center">

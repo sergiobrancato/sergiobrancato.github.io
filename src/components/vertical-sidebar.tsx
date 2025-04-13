@@ -53,8 +53,6 @@ export function VerticalSidebar({
   /* Update active section based on scroll position --> D E P R E C A T E D */
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
       // Find which section is currently in view
       navItems.forEach((item) => {
         if (item.ref.current) {

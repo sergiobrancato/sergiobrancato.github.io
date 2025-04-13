@@ -221,10 +221,9 @@ export default function Portfolio() {
 
   // Calculate the container height to prevent layout shifts
   // This ensures the container maintains a consistent height during filter transitions
-  const containerHeight =
+  /*const containerHeight =
     Math.ceil(filteredItems.length / 3) * 360 +
-    (Math.ceil(filteredItems.length / 3) - 1) * 24;
-  const minHeight = Math.max(containerHeight, 500);
+    (Math.ceil(filteredItems.length / 3) - 1) * 24;*/
 
   return (
     <div
@@ -431,9 +430,11 @@ export default function Portfolio() {
               >
                 {/* Main Image */}
                 <div className="mb-6">
-                  <img
-                    src={selectedItem.imageUrl || "/placeholder.svg"}
+                  <Image
+                    src={selectedItem.imageUrl}
                     alt={selectedItem.title}
+                    width={800}
+                    height={600}
                     className="w-full h-auto rounded-md object-cover max-h-[50vh]"
                   />
                 </div>
@@ -517,9 +518,11 @@ export default function Portfolio() {
                             key={index}
                             className="rounded-md overflow-hidden"
                           >
-                            <img
+                            <Image
                               src={img}
                               alt={`${selectedItem.title} - Image ${index + 1}`}
+                              width={800}
+                              height={600}
                               className="w-full h-auto object-cover"
                             />
                           </div>
