@@ -52,7 +52,7 @@ export const profile: Profile = {
 
   availability: {
     tone: "available",
-    label: "Open to European technical internships & MSc thesis collaborations",
+    label: "Open to work",
     statusLabel: "Open",
     shortLabel: "Available 2027",
     detail: "2027 · Internship or thesis · Copenhagen or relocation",
@@ -61,15 +61,15 @@ export const profile: Profile = {
   typewriter: {
     prefix: "I’m a",
     phrases: [
-      "software engineer with a systems mindset",
-      "systems architect for high-stakes domains",
+      "software developer with a system mindset",
+      "detail-oriented professional",
       "product builder grounded in research",
-      "technical communicator who ships",
+      "technical communicator",
     ],
   },
 
   hero: {
-    eyebrow: "Portfolio · 2026 · Copenhagen",
+    eyebrow: "Portfolio · 2026",
     primaryCta: "Explore projects",
     secondaryCta: "Download CV",
     tertiaryCta: "or start a conversation",

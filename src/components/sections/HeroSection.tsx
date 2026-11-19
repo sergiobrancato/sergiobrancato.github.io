@@ -112,7 +112,7 @@ export function HeroSection() {
 
             <h1
               id="hero-title"
-              className="mt-8 overflow-visible font-display font-semibold leading-tight tracking-[-0.062em] text-[clamp(3.6rem,11.5vw,8.75rem)] text-ink"
+              className="mt-8 overflow-visible font-display font-semibold leading-none tracking-[-0.062em] text-[clamp(3.6rem,11.5vw,8.75rem)] text-ink"
             >
               <motion.span
                 variants={item}
@@ -182,13 +182,7 @@ export function HeroSection() {
                 {profile.location.city}, {profile.location.country} · open to
                 relocation
               </span>
-              <span className="hidden h-3 w-px bg-line sm:block" />
-              <span className="inline-flex items-center gap-2">
-                <Languages className="h-3.5 w-3.5" strokeWidth={1.6} />
-                {profile.languages
-                  .map((language) => `${language.name} ${language.level}`)
-                  .join(" · ")}
-              </span>
+             
             </motion.div>
           </div>
 
@@ -196,7 +190,7 @@ export function HeroSection() {
           <motion.aside
             variants={item}
             aria-label="Profile summary"
-            className="relative hidden overflow-hidden rounded-2xl border border-line bg-surface/35 p-5 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.8)] backdrop-blur-2xl xl:block"
+            className="relative hidden overflow-hidden rounded-2xl border border-line bg-surface/35 p-5 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.8)] backdrop-blur-2xl"
           >
             <div
               aria-hidden="true"
@@ -299,9 +293,7 @@ export function HeroSection() {
             />
           </a>
 
-          <span className="hidden font-mono text-[0.58rem] uppercase tracking-[0.24em] text-muted/70 sm:block">
-            {profile.availability.detail}
-          </span>
+         
         </motion.div>
       </div>
 
@@ -310,7 +302,7 @@ export function HeroSection() {
         aria-hidden="true"
         className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rotate-90 font-mono text-[0.55rem] uppercase tracking-[0.4em] text-muted/60 2xl:block"
       >
-        Software · Systems · Story
+        Software · Design · Marketing
       </span>
     </section>
   );
