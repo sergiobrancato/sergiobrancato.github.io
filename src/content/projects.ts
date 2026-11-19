@@ -66,7 +66,7 @@ export const portfolioContent: PortfolioContent = {
       role: "Product engineer & interface design",
       timeframe: "10 weeks · MSc studio",
       tech: ["Next.js", "TypeScript", "D3.js", "WebGL", "Python"],
-      accent: "cyan",
+      accent: "sky",
       cover: {
         src: "/projects/orbit-atlas/cover.svg",
         alt: "Orbit Atlas mission-control dashboard with orbital plot, telemetry charts and status panels.",

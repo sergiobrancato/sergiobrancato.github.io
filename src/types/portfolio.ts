@@ -21,7 +21,58 @@ export type SectionId =
   | "portfolio"
   | "contact";
 
-export type Accent = "cyan" | "pink" | "amber" | "violet" | "emerald" | "blue";
+/**
+ * 42 curated project accents: 12 chromatic hue families with three related
+ * tones each, plus a grey-to-white neutral family. The exact hex values live in
+ * src/lib/accents.ts; use ACCENT_CORE there for the 12 most distinct hues.
+ */
+export type Accent =
+  // Cool spectrum
+  | "ice"
+  | "cyan"
+  | "aqua"
+  | "sky"
+  | "azure"
+  | "blue"
+  | "periwinkle"
+  | "indigo"
+  | "cobalt"
+  | "lavender"
+  | "violet"
+  | "iris"
+  | "lilac"
+  | "fuchsia"
+  | "magenta"
+  | "blush"
+  | "pink"
+  | "rose"
+  // Warm spectrum
+  | "coral"
+  | "red"
+  | "crimson"
+  | "peach"
+  | "orange"
+  | "tangerine"
+  | "apricot"
+  | "amber"
+  | "gold"
+  | "lemon"
+  | "lime"
+  | "chartreuse"
+  // Grounded spectrum
+  | "mint"
+  | "green"
+  | "emerald"
+  | "seafoam"
+  | "teal"
+  | "turquoise"
+  // Neutral spectrum — grey to white
+  | "graphite"
+  | "steel"
+  | "slate"
+  | "silver"
+  | "pearl"
+  | "white";
 
 export type NavIcon =
   | "home"
