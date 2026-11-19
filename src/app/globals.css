@@ -1,0 +1,400 @@
+/**
+ * src/app/globals.css
+ * -----------------------------------------------------------------------------
+ * The visual foundation of the site: colour tokens for dark / light mode,
+ * typography defaults, glass surfaces, grain, grids and interaction utilities.
+ *
+ * TO RETHEME THE SITE
+ *   Change the CSS variables inside `:root` (light) and `.dark` (dark). Every
+ *   component consumes these tokens through Tailwind, so the whole site follows.
+ *
+ * TO ADD A UTILITY
+ *   Keep it small and semantic (e.g. `.glass`, `.spotlight`), and document what
+ *   it is for. One-off styling belongs in the component, not here.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------- */
+/*  Design tokens                                                             */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* Hex values for hand-written CSS… */
+  --canvas: #fafaf9;
+  --canvas-soft: #f2f2ef;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --ink: #09090b;
+  --ink-soft: #3f3f46;
+  --muted: #71717a;
+  --line: rgba(9, 9, 11, 0.1);
+  --line-strong: rgba(9, 9, 11, 0.16);
+
+  --accent: #ea580c;
+  --accent-pink: #db2777;
+  --accent-cyan: #0e7490;
+  --accent-amber: #b45309;
+
+  /* …and channel triplets so Tailwind opacity modifiers work
+     (e.g. bg-surface/70, text-muted/60). Keep both in sync. */
+  --canvas-rgb: 250 250 249;
+  --canvas-soft-rgb: 242 242 239;
+  --surface-rgb: 255 255 255;
+  --surface-strong-rgb: 255 255 255;
+  --ink-rgb: 9 9 11;
+  --ink-soft-rgb: 63 63 70;
+  --muted-rgb: 113 113 122;
+  --accent-rgb: 234 88 12;
+  --accent-pink-rgb: 219 39 119;
+  --accent-cyan-rgb: 14 116 144;
+  --accent-amber-rgb: 180 83 9;
+
+  --glass: rgba(255, 255, 255, 0.66);
+  --glass-strong: rgba(255, 255, 255, 0.86);
+  --grid-line: rgba(9, 9, 11, 0.055);
+  --ambient-1: rgba(14, 165, 233, 0.06);
+  --ambient-2: rgba(244, 114, 182, 0.055);
+  --spotlight: rgba(9, 9, 11, 0.055);
+  --spotlight-strong: rgba(9, 9, 11, 0.09);
+
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 24px 60px -36px rgba(15, 23, 42, 0.25);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --canvas: #050505;
+  --canvas-soft: #09090b;
+  --surface: #0b0b0e;
+  --surface-strong: #111114;
+  --ink: #fafafa;
+  --ink-soft: #d4d4d8;
+  --muted: #8b8b95;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  --accent: #fb923c;
+  --accent-pink: #f472b6;
+  --accent-cyan: #22d3ee;
+  --accent-amber: #fbbf24;
+
+  --canvas-rgb: 5 5 5;
+  --canvas-soft-rgb: 9 9 11;
+  --surface-rgb: 11 11 14;
+  --surface-strong-rgb: 17 17 20;
+  --ink-rgb: 250 250 250;
+  --ink-soft-rgb: 212 212 216;
+  --muted-rgb: 139 139 149;
+  --accent-rgb: 251 146 60;
+  --accent-pink-rgb: 244 114 182;
+  --accent-cyan-rgb: 34 211 238;
+  --accent-amber-rgb: 251 191 36;
+
+  --glass: rgba(10, 10, 13, 0.62);
+  --glass-strong: rgba(13, 13, 17, 0.86);
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --ambient-1: rgba(56, 189, 248, 0.075);
+  --ambient-2: rgba(244, 114, 182, 0.055);
+  --spotlight: rgba(255, 255, 255, 0.075);
+  --spotlight-strong: rgba(255, 255, 255, 0.12);
+
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 70px -40px rgba(0, 0, 0, 0.9);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                      */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    background-image:
+      radial-gradient(1100px 700px at 12% -10%, var(--ambient-1), transparent 62%),
+      radial-gradient(900px 640px at 100% 4%, var(--ambient-2), transparent 58%);
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent-pink) 28%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+
+  /* Quiet, theme-aware scrollbar. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border: 3px solid var(--canvas);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Components & utilities                                                    */
+/* -------------------------------------------------------------------------- */
+
+@layer components {
+  .section-shell {
+    @apply relative mx-auto w-full max-w-[82rem] px-6 sm:px-8 lg:pl-28 lg:pr-12;
+  }
+
+  .surface-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    @apply rounded-2xl;
+  }
+
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+  }
+
+  .glass-strong {
+    background: var(--glass-strong);
+    border: 1px solid var(--line);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(28px) saturate(160%);
+  }
+
+  /* Mouse-tracking highlight. Set --spot-x / --spot-y from React. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 0%),
+      var(--spotlight),
+      transparent 64%
+    );
+    opacity: 0;
+    transition: opacity 260ms ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::before,
+  .spotlight:focus-within::before {
+    opacity: 1;
+  }
+
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--line-strong) 18%,
+      var(--line-strong) 82%,
+      transparent
+    );
+  }
+
+  .mono-label {
+    @apply font-mono text-[0.6875rem] uppercase tracking-[0.24em] text-muted;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line px-2.5 py-1 font-mono text-[0.6875rem] leading-none tracking-[0.02em] text-ink-soft;
+    background: color-mix(in srgb, var(--surface) 70%, transparent);
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--accent-pink) 0%,
+      #f43f5e 45%,
+      var(--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-dot-grid {
+    background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .mask-radial-fade {
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 65% at 50% 35%,
+      black 30%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(
+      ellipse 80% 65% at 50% 35%,
+      black 30%,
+      transparent 78%
+    );
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  .text-chromatic {
+    text-shadow:
+      -1px 0 rgba(34, 211, 238, 0.24),
+      1px 0 rgba(244, 114, 182, 0.22),
+      0 0 60px rgba(255, 255, 255, 0.09);
+  }
+
+  .light .text-chromatic,
+  :root:not(.dark) .text-chromatic {
+    text-shadow:
+      -1px 0 rgba(14, 116, 144, 0.14),
+      1px 0 rgba(219, 39, 119, 0.13),
+      0 18px 50px rgba(15, 23, 42, 0.08);
+  }
+
+  .name-sheen {
+    background-image: linear-gradient(
+      100deg,
+      var(--ink) 0%,
+      var(--ink) 38%,
+      var(--accent-cyan) 48%,
+      var(--accent-pink) 52%,
+      var(--ink) 62%,
+      var(--ink) 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 9s linear infinite;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Film grain overlay                                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Light mode is deliberately editorial: crisp slate type, not a gradient
+   display face. The chromatic sheen stays a dark-mode signature. */
+html:not(.dark) .name-sheen {
+  background-image: none;
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+  animation: none;
+}
+
+/* Hide site navigation while a case-study modal owns the screen. This also
+   avoids backdrop-filter layers competing with a portalled dialog. */
+html.modal-open .site-nav {
+  display: none !important;
+}
+
+.site-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.light .site-grain,
+html:not(.dark) .site-grain {
+  opacity: 0.028;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-sheen,
+  .animate-marquee,
+  .animate-spin-slow,
+  .animate-float,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
