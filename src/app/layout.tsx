@@ -94,6 +94,24 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: assetPath("/favicon.ico"), sizes: "any" },
+      {
+        url: assetPath("/icon.png"),
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    shortcut: assetPath("/favicon.ico"),
+    apple: [
+      {
+        url: assetPath("/apple-touch-icon.png"),
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {

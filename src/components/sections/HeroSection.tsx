@@ -3,8 +3,10 @@
  * -----------------------------------------------------------------------------
  * FULL-VIEWPORT HERO (#home).
  *
- * Composition: availability badge → oversized name with chromatic edge glow →
- * gradient typewriter → positioning statement → CTAs → live "telemetry" panel.
+ * Composition: availability badge → oversized name in solid display type →
+ * gradient typewriter → CTAs → live "telemetry" panel. The name deliberately
+ * has no background clip, glow or decorative overlay: the descender of the "g"
+ * in "Sergio" must stay fully visible and crisp.
  *
  * Copy comes from src/content/profile.ts. The animation is orchestrated with a
  * single Framer Motion stagger so the page feels composed, not assembled.
@@ -35,11 +37,6 @@ const container = {
 const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
-};
-
-const nameLine = {
-  hidden: { y: "112%" },
-  show: { y: "0%", transition: { duration: 0.95, ease: EASE } },
 };
 
 const STATUS_DOT: Record<string, string> = {
@@ -115,27 +112,20 @@ export function HeroSection() {
 
             <h1
               id="hero-title"
-              className="mt-8 font-display font-semibold leading-[0.82] tracking-[-0.062em] text-[clamp(3.6rem,11.5vw,8.75rem)]"
+              className="mt-8 overflow-visible font-display font-semibold leading-tight tracking-[-0.062em] text-[clamp(3.6rem,11.5vw,8.75rem)] text-ink"
             >
-              <span className="block overflow-hidden pb-[0.06em]">
-                <motion.span variants={nameLine} className="block">
-                  {profile.name.first}
-                </motion.span>
-              </span>
-              <span className="relative block overflow-hidden pb-[0.08em]">
-                <motion.span variants={nameLine} className="relative block">
-                  {/* Optical bloom behind the letters */}
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 hidden select-none text-white/15 blur-[22px] dark:block"
-                  >
-                    {profile.name.last}
-                  </span>
-                  <span className="name-sheen text-chromatic relative">
-                    {profile.name.last}
-                  </span>
-                </motion.span>
-              </span>
+              <motion.span
+                variants={item}
+                className="block overflow-visible"
+              >
+                {profile.name.first}
+              </motion.span>{" "}
+              <motion.span
+                variants={item}
+                className="block overflow-visible"
+              >
+                {profile.name.last}
+              </motion.span>
             </h1>
 
             <motion.div variants={item} className="mt-6 sm:mt-7">
@@ -144,13 +134,6 @@ export function HeroSection() {
                 prefix={profile.typewriter.prefix}
               />
             </motion.div>
-
-            <motion.p
-              variants={item}
-              className="mt-6 max-w-2xl text-[0.98rem] leading-relaxed text-muted sm:text-[1.06rem] sm:leading-relaxed"
-            >
-              {profile.hero.intro}
-            </motion.p>
 
             <motion.div
               variants={item}

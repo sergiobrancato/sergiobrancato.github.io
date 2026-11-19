@@ -70,8 +70,6 @@ export const profile: Profile = {
 
   hero: {
     eyebrow: "Portfolio · 2026 · Copenhagen",
-    intro:
-      "I turn complex, high-stakes problems into clear software — combining engineering rigour, systems thinking and a communicator’s instinct for what people actually need.",
     primaryCta: "Explore projects",
     secondaryCta: "Download CV",
     tertiaryCta: "or start a conversation",

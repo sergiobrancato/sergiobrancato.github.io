@@ -141,7 +141,7 @@ In `src/content/experience.ts`, duplicate an item. Set `type` to `"work"`, `"res
 
 ## 4. Design system
 
-- **Dark default:** obsidian `#050505`, hairline borders, frosted glass, chromatic name glow.
+- **Dark default:** obsidian `#050505`, hairline borders, frosted glass, oversized solid display name, gradient typewriter.
 - **Light:** warm off-white `#FAFAF9`, slate type, architectural shadows.
 - **Accent:** orange → pink → cyan, used sparingly for signal, never for decoration.
 - **Typography:** Space Grotesk (display), Inter (body), JetBrains Mono (labels), Instrument Serif (editorial italics).
@@ -185,9 +185,13 @@ All motion respects `prefers-reduced-motion`.
 
 ```text
 ├── .github/workflows/deploy.yml   # Build & deploy to GitHub Pages on push to main
+├── icon.png                       # Source SB monogram for favicon generation
 ├── public/
 │   ├── cv/                        # Your PDF CV
 │   ├── projects/                  # One folder per project (cover + gallery)
+│   ├── favicon.ico                # Multi-size 16/32/48/64 favicon
+│   ├── icon.png                   # 512px app icon
+│   ├── apple-touch-icon.png       # 180px iOS home-screen icon
 │   ├── og.png / og.svg            # Social-share card (PNG + editable source)
 │   └── .nojekyll                  # Keeps _next assets on GitHub Pages
 ├── scripts/
@@ -232,7 +236,6 @@ All motion respects `prefers-reduced-motion`.
 │       ├── layout.tsx             # Fonts, SEO, theme shell, navigation
 │       ├── page.tsx               # The six sections, in order
 │       ├── globals.css            # Tokens, utilities, grain, grid
-│       ├── icon.svg               # Favicon
 │       ├── robots.ts              # Generated robots.txt
 │       └── sitemap.ts             # Generated sitemap.xml
 ├── next.config.ts                 # Static export + base path
@@ -248,20 +251,20 @@ Every file starts with a plain-English header comment explaining its purpose and
 
 The included workflow builds the static site and publishes `out/`.
 
-1. Create a GitHub repository and push this project to `main`:
+1. This repository is already connected to:
+   `https://github.com/sergiobrancato/sergiobrancato.github.io.git`
 
    ```bash
-   git init
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<username>/<repo>.git
+   git remote add origin https://github.com/sergiobrancato/sergiobrancato.github.io.git
    git push -u origin main
    ```
 
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-3. Push to `main` (or run the workflow manually). The site appears at:
-   `https://<username>.github.io/<repo>/`
+3. Push to `main` (or run the workflow manually). Because this is the
+   `sergiobrancato.github.io` user site, it appears at:
+   `https://sergiobrancato.github.io/`
+
+The workflow runs only on `main`; the `dev` branch is safe for iteration and will never overwrite the live site.
 
 That is it. The workflow reads the repository’s base path from `actions/configure-pages` and passes it as `NEXT_PUBLIC_BASE_PATH`, which both Next.js and `assetPath()` use. It also passes the Pages origin as `NEXT_PUBLIC_SITE_URL`, so canonical links, Open Graph images, the sitemap and robots.txt point at the deployed URL automatically. For a user/organisation site (`<username>.github.io`), the base path is empty and the same build works.
 

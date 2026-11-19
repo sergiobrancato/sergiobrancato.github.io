@@ -113,10 +113,6 @@ export function LeftNavRail() {
             );
           })}
         </div>
-
-        <div className="mt-3 flex justify-center">
-          <span className="h-10 w-px bg-gradient-to-b from-line-strong to-transparent" />
-        </div>
       </nav>
 
       {/* ------------------------------------------------------------------ */}

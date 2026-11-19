@@ -135,7 +135,6 @@ export interface Profile {
 
   hero: {
     eyebrow: string;
-    intro: string;
     primaryCta: string;
     secondaryCta: string;
     /** Quiet text link beside the buttons. */
