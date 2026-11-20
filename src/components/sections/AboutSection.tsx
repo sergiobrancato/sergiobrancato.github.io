@@ -102,11 +102,7 @@ export function AboutSection() {
 
               <div className="relative flex items-center justify-between">
                 <span className="font-mono text-[0.58rem] uppercase tracking-[0.24em] text-white/50">
-                  Identity / SB
-                </span>
-                <span className="flex items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.18em] text-emerald-300/80">
-                  <span className="h-1 w-1 rounded-full bg-emerald-300" />
-                  {profile.availability.statusLabel}
+                  Identity
                 </span>
               </div>
 
@@ -123,23 +119,24 @@ export function AboutSection() {
                     {profile.name.initials}
                   </span>
                 </div>
-                <span className="absolute -left-1 top-1/2 -translate-y-1/2 -rotate-90 font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white/35">
+                <span className="absolute inset-x-0 -top-1 text-center font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white">
+                  Marketing
+                </span>
+
+                <span className="absolute -left-1 top-1/2 -translate-y-1/2 -rotate-90 font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white">
                   Software
                 </span>
-                <span className="absolute -right-2 top-1/2 -translate-y-1/2 rotate-90 font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white/35">
+                <span className="absolute -right-2 top-1/2 -translate-y-1/2 rotate-90 font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white">
                   Systems
                 </span>
-                <span className="absolute inset-x-0 -bottom-1 text-center font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white/35">
-                  Story
+                <span className="absolute inset-x-0 -bottom-1 text-center font-mono text-[0.45rem] uppercase tracking-[0.34em] text-white">
+                  Design
                 </span>
               </div>
 
               <div className="relative mt-9 border-t border-white/10 pt-5">
                 <p className="font-display text-lg font-medium tracking-tight">
                   {profile.name.full}
-                </p>
-                <p className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-white/45">
-                  {profile.location.city} · {profile.location.countryCode}
                 </p>
 
                 <div className="mt-4 flex flex-wrap gap-1.5">
@@ -179,7 +176,9 @@ export function AboutSection() {
                       </span>
                     </div>
 
-                    <p className="mt-6 mono-label text-[0.6rem]">{fact.label}</p>
+                    <p className="mt-6 mono-label text-[0.6rem]">
+                      {fact.label}
+                    </p>
                     <p className="mt-2 font-display text-[1.05rem] font-medium leading-snug tracking-[-0.01em] text-ink">
                       {fact.value}
                     </p>
@@ -192,7 +191,7 @@ export function AboutSection() {
             );
           })}
 
-          {/* Seeking strip ------------------------------------------------ */}
+          {/* Seeking strip ------------------------------------------------ 
           <Reveal className="lg:col-span-12" delay={0.1}>
             <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface/50 px-5 py-5 backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:px-6">
               <div className="flex items-start gap-4">
@@ -218,7 +217,7 @@ export function AboutSection() {
                 ))}
               </div>
             </div>
-          </Reveal>
+          </Reveal>*/}
         </div>
       </div>
     </section>

@@ -91,20 +91,20 @@ export const profile: Profile = {
   about: {
     index: "01",
     label: "About",
-    heading: "Engineering rigour,",
-    headingAccent: "human delivery.",
+    heading: "Technical thinking,",
+    headingAccent: "human connection.",
     description:
-      "A software designer who can read the architecture, the research paper and the room.",
+      "A software developer who can read the architecture, the research paper and the room.",
     paragraphs: [
-      "I’m a Copenhagen-based software designer completing an MSc in Software Design at the IT University of Copenhagen, with a BSc in Communication behind me. The combination is deliberate: I wanted to understand both how systems are built and how people make sense of them.",
-      "My work sits where software engineering meets product thinking and technical storytelling. I prototype interfaces for dense data, reason about architecture and security, and write the documentation that makes a system adoptable. I care about the unglamorous details — error states, latency budgets, naming, accessibility — because that is where trust is earned.",
-      "I’m now looking for a technical internship or MSc thesis collaboration in aerospace, defence, cybersecurity, FinTech or scientific research: problems where correctness matters, with teams who believe clarity is part of the engineering.",
+      "I started my path studying how people communicate and make sense of science and technology during my bachelor in Communication at the University of Padua, Italy;  before realizing I didn't just want to analyze digital systems, I wanted to build them. That curiosity led me to Copenhagen, where I am completing an MSc in Software Design at the IT University of Copenhagen, bridging human-centered communication with full-stack engineering, data systems, and software architecture.",
+      "My background blends academic research, web development, and fast-paced teamwork. Alongside my studies, I worked as a research web developer in Padua and took on several customer-facing roles across Italy and Copenhagen, sharpening my ability to stay calm under pressure and communicate clearly with anyone. Outside of coursework, I enjoy building personal projects to practice my skills or to simplify either my or my friends life/work. ",
     ],
-    quote: "The best systems are not only correct. They are legible.",
-    quoteAttribution: "Working principle",
+    quote:
+      "The most dangerous phrase in the language is, 'We've always done it this way.'",
+    quoteAttribution:
+      "Grace Hopper (Computer Scientist & U.S. Navy Rear Admiral)",
     currentlyLabel: "Currently seeking",
-    currentFocus:
-      "Exploring thesis directions in decision-support interfaces for high-consequence systems.",
+    currentFocus: "Exploring various directions in the job market.",
   },
 
   quickFacts: [
@@ -119,8 +119,7 @@ export const profile: Profile = {
       id: "mobility",
       label: "European mobility",
       value: "Copenhagen-based",
-      detail:
-        "Open across Denmark, Switzerland, Italy, the Netherlands, France & wider Europe",
+      detail: "Open to relocate across Europe",
       icon: "globe",
     },
     {
@@ -134,7 +133,7 @@ export const profile: Profile = {
       id: "sectors",
       label: "Target sectors",
       value: "Aerospace · Defence",
-      detail: "Cybersecurity · FinTech · Scientific research",
+      detail: "Cybersecurity · FinTech · Scientific research · Startup",
       icon: "target",
     },
   ],
