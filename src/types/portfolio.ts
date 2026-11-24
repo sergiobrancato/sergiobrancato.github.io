@@ -328,7 +328,7 @@ export interface ExperienceContent {
 /*  Portfolio                                                                  */
 /* -------------------------------------------------------------------------- */
 
-export type ProjectCategory = "software" | "data" | "design";
+export type ProjectCategory = "software" | "design" | "others";
 
 export interface ProjectCategoryMeta {
   id: ProjectCategory;
@@ -372,7 +372,7 @@ export interface Project {
   /** One sentence used on the card. */
   summary: string;
   /** Your role, shown in the case-study header. */
-  role: string;
+  role?: string;
   timeframe: string;
   tech: string[];
   accent: Accent;
@@ -391,8 +391,8 @@ export interface ProjectModalLabels {
   toolsSuffix: string;
   overview: string;
   challenge: string;
-  architecture: string;
-  features: string;
+  architecture?: string;
+  features?: string;
   actionLinks: string;
 }
 

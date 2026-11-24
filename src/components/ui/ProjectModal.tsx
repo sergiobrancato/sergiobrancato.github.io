@@ -115,7 +115,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const accent = ACCENT_HEX[project.accent];
 
   const showPrevious = () =>
-    setActiveIndex((current) => (current - 1 + gallery.length) % gallery.length);
+    setActiveIndex(
+      (current) => (current - 1 + gallery.length) % gallery.length,
+    );
   const showNext = () =>
     setActiveIndex((current) => (current + 1) % gallery.length);
 
@@ -247,9 +249,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         aria-labelledby="project-modal-title"
         layout
         initial={
-          reduceMotion
-            ? { opacity: 0 }
-            : { opacity: 0, y: 28, scale: 0.985 }
+          reduceMotion ? { opacity: 0 } : { opacity: 0, y: 28, scale: 0.985 }
         }
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={
@@ -344,7 +344,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                       initial={{ opacity: 0, scale: 1.015 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: reduceMotion ? 0 : 0.3, ease: EASE }}
+                      transition={{
+                        duration: reduceMotion ? 0 : 0.3,
+                        ease: EASE,
+                      }}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                   </AnimatePresence>
@@ -446,36 +449,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.summary}
                 </p>
               </div>
-
-              <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-line bg-surface/55 p-4">
-                {[
-                  {
-                    label: portfolioContent.modalLabels.metaRole,
-                    value: project.role,
-                  },
-                  {
-                    label: portfolioContent.modalLabels.metaTimeline,
-                    value: project.timeframe,
-                  },
-                  {
-                    label: portfolioContent.modalLabels.metaYear,
-                    value: project.year,
-                  },
-                  {
-                    label: portfolioContent.modalLabels.metaStack,
-                    value: `${project.tech.length} ${portfolioContent.modalLabels.toolsSuffix}`,
-                  },
-                ].map((meta) => (
-                  <div key={meta.label}>
-                    <dt className="font-mono text-[0.5rem] uppercase tracking-[0.16em] text-muted">
-                      {meta.label}
-                    </dt>
-                    <dd className="mt-1 text-[0.72rem] leading-snug text-ink-soft">
-                      {meta.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
             </div>
 
             {/* Case study ------------------------------------------------ */}
@@ -496,83 +469,102 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </CaseBlock>
               </div>
 
-              <CaseBlock
-                index="03"
-                title={portfolioContent.modalLabels.architecture}
-              >
-                <p className="max-w-3xl text-[0.84rem] leading-[1.75] text-ink-soft">
-                  {project.caseStudy.architecture.summary}
-                </p>
+              {(project.caseStudy.architecture.summary.trim().length > 0 ||
+                project.caseStudy.architecture.layers.length > 0 ||
+                project.tech.length > 0) && (
+                <CaseBlock
+                  index="03"
+                  title={
+                    portfolioContent.modalLabels.architecture ?? "Architecture"
+                  }
+                >
+                  {project.caseStudy.architecture.summary.trim().length > 0 && (
+                    <p className="max-w-3xl text-[0.84rem] leading-[1.75] text-ink-soft">
+                      {project.caseStudy.architecture.summary}
+                    </p>
+                  )}
 
-                <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
-                  {project.caseStudy.architecture.layers.map((layer) => (
-                    <div
-                      key={layer.label}
-                      className="rounded-lg border border-line bg-surface/50 p-3.5"
-                    >
-                      <p className="font-mono text-[0.54rem] uppercase tracking-[0.16em] text-ink">
-                        {layer.label}
-                      </p>
-                      <p className="mt-1.5 text-[0.74rem] leading-relaxed text-muted">
-                        {layer.detail}
-                      </p>
+                  {project.caseStudy.architecture.layers.length > 0 && (
+                    <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                      {project.caseStudy.architecture.layers.map((layer) => (
+                        <div
+                          key={layer.label}
+                          className="rounded-lg border border-line bg-surface/50 p-3.5"
+                        >
+                          <p className="font-mono text-[0.54rem] uppercase tracking-[0.16em] text-ink">
+                            {layer.label}
+                          </p>
+                          <p className="mt-1.5 text-[0.74rem] leading-relaxed text-muted">
+                            {layer.detail}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  )}
 
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-line bg-canvas/60 px-2.5 py-1 font-mono text-[0.62rem] text-ink-soft"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CaseBlock>
-
-              <CaseBlock
-                index="04"
-                title={portfolioContent.modalLabels.features}
-              >
-                <div className="grid gap-2.5 sm:grid-cols-2">
-                  {project.caseStudy.features.map((feature, index) => (
-                    <div
-                      key={feature.title}
-                      className="rounded-lg border border-line bg-surface/50 p-4"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-[0.52rem] text-accent">
-                          {String(index + 1).padStart(2, "0")}
+                  {project.tech.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-line bg-canvas/60 px-2.5 py-1 font-mono text-[0.62rem] text-ink-soft"
+                        >
+                          {tech}
                         </span>
-                        <p className="text-[0.8rem] font-medium text-ink">
-                          {feature.title}
-                        </p>
-                      </div>
-                      <p className="mt-1.5 text-[0.73rem] leading-relaxed text-muted">
-                        {feature.description}
-                      </p>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  )}
+                </CaseBlock>
+              )}
 
-                <div className="mt-4 grid grid-cols-3 gap-2.5">
-                  {project.caseStudy.impact.map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="rounded-lg border border-line bg-canvas/50 px-3 py-3.5"
-                    >
-                      <p className="font-display text-lg font-medium tracking-[-0.03em] text-ink">
-                        {metric.value}
-                      </p>
-                      <p className="mt-1 text-[0.6rem] leading-snug text-muted">
-                        {metric.label}
-                      </p>
+              {(project.caseStudy.features.length > 0 ||
+                project.caseStudy.impact.length > 0) && (
+                <CaseBlock
+                  index="04"
+                  title={portfolioContent.modalLabels.features ?? "Features"}
+                >
+                  {project.caseStudy.features.length > 0 && (
+                    <div className="grid gap-2.5 sm:grid-cols-2">
+                      {project.caseStudy.features.map((feature, index) => (
+                        <div
+                          key={feature.title}
+                          className="rounded-lg border border-line bg-surface/50 p-4"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-[0.52rem] text-accent">
+                              {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <p className="text-[0.8rem] font-medium text-ink">
+                              {feature.title}
+                            </p>
+                          </div>
+                          <p className="mt-1.5 text-[0.73rem] leading-relaxed text-muted">
+                            {feature.description}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </CaseBlock>
+                  )}
+
+                  {project.caseStudy.impact.length > 0 && (
+                    <div className="mt-4 grid grid-cols-3 gap-2.5">
+                      {project.caseStudy.impact.map((metric) => (
+                        <div
+                          key={metric.label}
+                          className="rounded-lg border border-line bg-canvas/50 px-3 py-3.5"
+                        >
+                          <p className="font-display text-lg font-medium tracking-[-0.03em] text-ink">
+                            {metric.value}
+                          </p>
+                          <p className="mt-1 text-[0.6rem] leading-snug text-muted">
+                            {metric.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </CaseBlock>
+              )}
 
               <CaseBlock
                 index="05"
@@ -610,7 +602,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             <p className="mt-8 border-t border-line pt-4 text-center font-mono text-[0.52rem] uppercase tracking-[0.18em] text-muted/60">
-              {portfolioContent.caseStudyLabel} · {project.title} · {project.year}
+              {portfolioContent.caseStudyLabel} · {project.title} ·{" "}
+              {project.year}
             </p>
           </div>
         </div>

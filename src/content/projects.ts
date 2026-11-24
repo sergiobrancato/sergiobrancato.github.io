@@ -28,21 +28,20 @@ export const portfolioContent: PortfolioContent = {
     label: "Selected work",
     heading: "Built to be used,",
     headingAccent: "not just shipped.",
-    description:
-      "Six projects across systems, data and communication — each one a small argument for clarity under constraints.",
+    description: "Some of my personal projects.",
   },
 
   allLabel: "All work",
-  caseStudyLabel: "Case study",
+  caseStudyLabel: "",
 
   categories: [
     { id: "software", label: "Software & Systems" },
-    { id: "data", label: "Data & Research" },
     { id: "design", label: "Design & Communication" },
+    { id: "others", label: "Others" },
   ],
 
   modalLabels: {
-    metaRole: "Role",
+    metaRole: "",
     metaTimeline: "Timeline",
     metaYear: "Year",
     metaStack: "Stack",
@@ -56,716 +55,387 @@ export const portfolioContent: PortfolioContent = {
 
   projects: [
     {
-      id: "orbit-atlas",
-      title: "Orbit Atlas",
-      subtitle: "Space systems · Telemetry intelligence",
-      year: "2026",
-      categories: ["software", "data"],
-      summary:
-        "A mission-control surface that turns satellite telemetry, conjunction warnings and orbital history into one readable operational picture.",
-      role: "Product engineer & interface design",
-      timeframe: "10 weeks · MSc studio",
-      tech: ["Next.js", "TypeScript", "D3.js", "WebGL", "Python"],
-      accent: "sky",
-      cover: {
-        src: "/projects/orbit-atlas/cover.svg",
-        alt: "Orbit Atlas mission-control dashboard with orbital plot, telemetry charts and status panels.",
-      },
-      gallery: [
-        {
-          src: "/projects/orbit-atlas/gallery-01.svg",
-          alt: "Orbit Atlas mission overview with satellite health cards and live telemetry.",
-          caption: "Mission overview: one screen for health, link status and active warnings.",
-        },
-        {
-          src: "/projects/orbit-atlas/gallery-02.svg",
-          alt: "Orbital track replay view with ground track and timeline scrubber.",
-          caption: "Time-travel replay keeps orbital state and telemetry in sync.",
-        },
-        {
-          src: "/projects/orbit-atlas/gallery-03.svg",
-          alt: "Conjunction risk panel showing miss distance and uncertainty.",
-          caption: "Every risk score carries its rationale — no unexplained red badges.",
-        },
-        {
-          src: "/projects/orbit-atlas/gallery-04.svg",
-          alt: "Orbit Atlas component library and colour accessibility notes.",
-          caption: "A small component system keeps the console coherent under pressure.",
-        },
-      ],
-      caseStudy: {
-        overview: [
-          "Orbit Atlas is a prototype decision-support surface for small satellite operations teams. It turns raw telemetry, orbital elements and conjunction warnings into one readable operational picture.",
-          "I led the interface architecture and frontend, and worked with a simulated operator to pressure-test the workflows that matter during a pass: what is healthy, what is changing, and what needs attention now.",
-        ],
-        challenge: [
-          "Operators were juggling a telemetry plotter, a spreadsheet of orbital elements and a separate warning feed. Each tool was competent; together they made prioritisation slow and error-prone.",
-          "The hard part was not drawing an orbit. It was deciding what deserved attention: a temperature drift, a degraded link or a close approach with a 30-minute window can all look urgent in isolation.",
-          "The interface also had to survive an eight-hour shift, a projector in a bright room, and a reviewer who may be colour-blind. Legibility was a functional requirement.",
-        ],
-        architecture: {
-          summary:
-            "An event-driven telemetry pipeline feeds a typed React client. WebGL handles the orbital scene; a small Python service owns propagation and risk scoring.",
-          layers: [
-            {
-              label: "Ingestion",
-              detail:
-                "A Python worker normalises telemetry frames and TLE sets into a time-series store with deterministic fixtures for replay.",
-            },
-            {
-              label: "Domain service",
-              detail:
-                "Propagation and conjunction scoring are exposed over a typed API. Each risk level ships with the factors behind it.",
-            },
-            {
-              label: "Client",
-              detail:
-                "Next.js and TypeScript, D3 for time-series, WebGL for the orbital scene, and a reducer-driven replay clock shared across every view.",
-            },
-            {
-              label: "Quality",
-              detail:
-                "Playwright smoke tests, seeded data, reduced-motion support and a keyboard-first interaction model.",
-            },
-          ],
-        },
-        features: [
-          {
-            title: "Operational overview",
-            description:
-              "A single-screen health summary: link status, battery trend, thermal envelope and active warnings, ranked by consequence.",
-          },
-          {
-            title: "Time-travel replay",
-            description:
-              "Scrub the mission timeline to reconstruct an anomaly with telemetry and orbit state moving together.",
-          },
-          {
-            title: "Explainable conjunction risk",
-            description:
-              "Each close approach shows miss distance, uncertainty and the inputs driving the score, so an operator can disagree with the system.",
-          },
-          {
-            title: "Accessible by default",
-            description:
-              "Colour-blind-safe encodings, redundant shape and label cues, reduced motion, and full keyboard navigation.",
-          },
-        ],
-        impact: [
-          { value: "12k", label: "telemetry points replayed at 60 fps" },
-          { value: "4 → 1", label: "operator workflows consolidated into one surface" },
-          { value: "100%", label: "risk scores with visible rationale" },
-        ],
-      },
-      links: [
-        {
-          label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/orbit-atlas",
-          icon: "github",
-        },
-        {
-          label: "Live demo",
-          href: "https://sergiobrancato.github.io/orbit-atlas/",
-          icon: "external",
-        },
-        {
-          label: "Case-study notes",
-          href: "https://github.com/sergiobrancato/orbit-atlas#readme",
-          icon: "docs",
-        },
-      ],
-    },
-
-    {
-      id: "sentinel-access",
-      title: "Sentinel",
-      subtitle: "Cybersecurity · Zero-trust access reviews",
+      id: "scrittura",
+      title: "Scrittura",
+      subtitle: "for who creates stories",
       year: "2026",
       categories: ["software"],
       summary:
-        "An access-review console that makes policy decisions explainable, reviewable and auditable — without slowing security teams down.",
-      role: "Full-stack engineer",
-      timeframe: "8 weeks · Systems security studio",
-      tech: ["Go", "React", "Open Policy Agent", "PostgreSQL", "Docker"],
-      accent: "violet",
+        "Software created for a friend who loves writing fiction—designed to replace scattered notes with a single, structured desktop workspace for chapters, characters, and timelines.",
+
+      timeframe: "",
+      tech: ["Electron", "React", "TypeScript", "Vite", "Tailwind CSS"],
+      accent: "gold",
       cover: {
-        src: "/projects/sentinel-access/cover.svg",
-        alt: "Sentinel access-review console with policy graph and review queue.",
+        src: "/projects/scrittura/home.png",
+        alt: "Scrittura desktop application interface with a clean, dark-mode design.",
       },
       gallery: [
         {
-          src: "/projects/sentinel-access/gallery-01.svg",
-          alt: "Sentinel access review queue with risk grouping and reviewer assignments.",
-          caption: "Review queues grouped by blast radius, not alphabetically.",
+          src: "/projects/scrittura/capitoli.png",
+          alt: "Scrittura chapter view with a clean, dark-mode design.",
+          caption:
+            "Chapter view: one screen for writing, editing, and managing story elements.",
         },
         {
-          src: "/projects/sentinel-access/gallery-02.svg",
-          alt: "Policy simulation view showing proposed changes before deployment.",
-          caption: "Simulate a policy change against real access graphs before shipping it.",
+          src: "/projects/scrittura/timeline.png",
+          alt: "Scrittura timeline view with a clean, dark-mode design.",
+          caption:
+            "Timeline view: visualize your story's progression and key events.",
         },
         {
-          src: "/projects/sentinel-access/gallery-03.svg",
-          alt: "Permission diff showing added and removed capabilities.",
-          caption: "Diffs speak in capabilities and consequences, not raw policy syntax.",
-        },
-        {
-          src: "/projects/sentinel-access/gallery-04.svg",
-          alt: "Audit ledger export with policy provenance.",
-          caption: "Every decision resolves to a policy line and an immutable ledger entry.",
+          src: "/projects/scrittura/personaggi.png",
+          alt: "Scrittura character sheet with detailed profile information.",
+          caption:
+            "Character sheet: manage detailed profiles for each character in your story.",
         },
       ],
       caseStudy: {
         overview: [
-          "Sentinel is an access-review console for teams moving from static roles to policy-as-code. It gives reviewers a queue, a diff and an explanation for every decision, then writes the evidence an auditor will ask for.",
-          "The project asked a simple question: can a security tool explain itself? The answer had to hold up in a live review, not just a demo.",
+          "Scrittura is an offline-first desktop application in Italian built for writing and organizing short stories and novels. It unifies manuscript drafting, customizable book covers, character sheets, and an interactive plot chronology into one distraction-free environment.",
+          "I designed and built the application end-to-end around a writer's real workflow—connecting the editor directly to the story's timeline so that tagging a chapter with a narrative moment automatically updates the visual plot arc without manual duplication.",
         ],
         challenge: [
-          "Access reviews often live in spreadsheets: slow, detached from the policy engine and impossible to audit with confidence.",
-          "Reviewers were being asked to approve changes expressed as hundreds of lines of Rego. They needed to see capabilities, affected resources and blast radius — in language they could defend.",
-          "Auditors needed an immutable trail. Engineers needed a fast path. Both needs had to be served by the same decision record.",
+          "Writers often face a frustrating trade-off: minimalist text editors leave character traits and plot timelines scattered across separate documents, while heavy commercial suites overwhelm the drafting process with clutter and subscriptions.",
+          "The core design challenge was making structural organization effortless at any scale. Whether outlining a short story or a multi-arc novel, the timeline needed to zoom smoothly from detailed event cards down to a minimalist bird's-eye view of dots, with instant reordering via chapter sliders or toggleable drag-and-drop.",
+          "Built for daily offline use on Windows, reliability and accessibility were essential: full dark-mode legibility for long writing sessions, local-first storage with zero cloud dependency, and a double-click .exe installer requiring no terminal setup.",
         ],
         architecture: {
           summary:
-            "A Go API evaluates authorization through Open Policy Agent, records an append-only audit ledger in PostgreSQL, and streams a React console.",
+            "An offline-first Electron desktop shell pairs a typed React and Tailwind CSS interface with local Node.js filesystem persistence over secure IPC.",
           layers: [
             {
-              label: "Policy",
+              label: "Persistence",
               detail:
-                "OPA policies are versioned in git. A simulation endpoint evaluates proposed changes against the current access graph before merge.",
+                "Node.js fs/promises stores stories, rich-text chapters, and timeline metadata as structured JSON in userData, copying portraits and book covers locally so file paths never break.",
             },
             {
-              label: "API",
+              label: "Timeline sync",
               detail:
-                "Go service handles review queues, approvals and evidence export, with structured decision logs from the first request.",
-            },
-            {
-              label: "Evidence",
-              detail:
-                "PostgreSQL append-only ledger stores policy hash, input snapshot and reviewer action for every decision.",
+                "Node.js fs/promises stores stories, rich-text chapters, and timeline metadata as structured JSON in userData, copying portraits and book covers locally so file paths never break.",
             },
             {
               label: "Client",
               detail:
-                "React console with optimistic updates, explicit loading and failure states, and a keyboard-driven review flow.",
+                "React, TypeScript, and Tailwind CSS power a dark-mode-first editor with rich-text formatting, a 3-level zoomable horizontal/vertical timeline, and drag-and-drop reordering.",
+            },
+            {
+              label: "User experience",
+              detail:
+                "Packaged via electron-builder as a standalone Windows .exe installer with a custom vector icon, desktop shortcut creation, and a preloaded Italian sample story.",
             },
           ],
         },
-        features: [
-          {
-            title: "Policy simulator",
-            description:
-              "Run a proposed policy against the real access graph and see who gains or loses what before anything ships.",
-          },
-          {
-            title: "Capability diffs",
-            description:
-              "Translate Rego changes into readable capabilities, affected resources and a plain-language risk summary.",
-          },
-          {
-            title: "Risk-ranked queues",
-            description:
-              "Sort reviews by blast radius, privilege level and inactivity, so the highest-consequence decisions get human attention first.",
-          },
-          {
-            title: "Audit-ready export",
-            description:
-              "One click produces a signed evidence bundle: policy version, decision inputs, reviewer and timestamp.",
-          },
-        ],
-        impact: [
-          { value: "6 days → 90 min", label: "prototype review cycle for a 40-service estate" },
-          { value: "100%", label: "decisions traceable to a policy line" },
-          { value: "0", label: "standing admin rights required for reviewers" },
-        ],
+        features: [],
+        impact: [],
       },
       links: [
         {
           label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/sentinel-access",
+          href: "https://github.com/sergiobrancato/scrittura",
           icon: "github",
-        },
-        {
-          label: "Architecture notes",
-          href: "https://github.com/sergiobrancato/sentinel-access#architecture",
-          icon: "docs",
         },
       ],
     },
 
     {
-      id: "helios-explorer",
-      title: "Helios",
-      subtitle: "Scientific research · Solar observation data",
-      year: "2025",
-      categories: ["data", "software"],
+      id: "amorim",
+      title: "Amorim Cork Italia",
+      subtitle: "Sustainable Marketing · B2B & B2C Brand Strategy",
+      year: "2024",
+      categories: ["design"],
       summary:
-        "A cross-filtered explorer that makes four decades of solar observation data usable without writing a single query.",
-      role: "Data interface engineer",
-      timeframe: "6 weeks · Research collaboration",
-      tech: ["Python", "FastAPI", "DuckDB", "React", "Plotly"],
-      accent: "amber",
+        "An integrated B2B and B2C marketing strategy for Amorim Cork Italia to position the Xpür® Vintage Qork closure among organic wineries and introduce a consumer-facing wine sustainability rating system.",
+      role: "Marketing & Communication Strategist",
+      timeframe: "Academic Consulting Lab · Corporate Marketing (CIA)",
+      tech: [],
+      accent: "coral",
       cover: {
-        src: "/projects/helios-explorer/cover.svg",
-        alt: "Helios solar data explorer with sunspot charts, spectrum bands and filters.",
+        src: "/projects/amorim/cover.jpg",
+        alt: "Amorim Cork Italia sustainability rating system and Xpür Vintage Qork campaign overview.",
       },
       gallery: [
         {
-          src: "/projects/helios-explorer/gallery-01.svg",
-          alt: "Helios cross-filtered dataset view with time range and instrument filters.",
-          caption: "Cross-filtering keeps the question and the evidence on the same screen.",
-        },
-        {
-          src: "/projects/helios-explorer/gallery-02.svg",
-          alt: "Solar cycle comparison chart with annotations.",
-          caption: "Cycle comparisons are precomputed, annotated and reproducible.",
-        },
-        {
-          src: "/projects/helios-explorer/gallery-03.svg",
-          alt: "Data provenance panel showing source files and processing steps.",
-          caption: "Every chart can reveal its provenance trail and export it.",
-        },
-        {
-          src: "/projects/helios-explorer/gallery-04.svg",
-          alt: "Helios export dialog with analysis-ready dataset options.",
-          caption: "Exports carry the filters, versions and citation metadata with them.",
+          src: "/projects/amorim/amorim.jpg",
+          alt: "Value Proposition Canvas and Buyer Persona for organic winemaker Roberto Trevisan.",
+          caption:
+            "B2B value proposition and buyer persona tailored to small organic and biodynamic wineries.",
         },
       ],
       caseStudy: {
         overview: [
-          "Helios is a research-data explorer for a solar physics group sitting on forty years of heterogeneous observations. It lets researchers move from a question to a defensible, citable dataset without writing SQL.",
-          "I designed the interaction model and built the frontend against a FastAPI/DuckDB backend developed with the research team.",
+          "Developed within the International Communication for Corporate Marketing (CIA) lab, this project formulated a comprehensive B2B and B2C communication strategy for Amorim Cork Italia—the Conegliano-based Italian branch of global cork leader Corticeira Amorim. The objective was to accelerate adoption of Xpür® Vintage Qork, a micro-granulated stopper composed of 80% natural cork and 20% plant-based binder treated with supercritical CO₂ anti-TCA technology.",
+          "Working in a cross-functional team, we bridged technical enological advantages—sensory neutrality, oxidation protection, 100% recyclability, and a 10-year closure guarantee—with accessible consumer storytelling designed to transform the wine stopper into a recognizable symbol of environmental stewardship.",
         ],
         challenge: [
-          "The archive spans multiple instruments, file formats and calibration periods. Researchers knew the questions but not the schema, so exploratory work depended on one or two power users.",
-          "Scientific trust is non-negotiable: a beautiful chart is worthless if you cannot explain which files, versions and filters produced it.",
-          "The tool had to fit existing habits — annotations, exports, citations — rather than asking a lab to change how it works.",
+          "Small organic and biodynamic wineries—modeled through our buyer persona, winemaker Roberto Trevisan—strive to build 100% recyclable supply chains, but must balance higher raw material costs against limited market visibility and strict quality-preservation demands.",
+          "Interviews with wine producers confirmed that closure choices are driven primarily by wine protection rather than stopper features alone. Meanwhile, our consumer survey showed that while buyers weigh price, quality, producer, and label first, 84% recognize that the cork moderately-to-heavily influences wine quality and 68% would prefer a 100% plant-based closure.",
+          "The core challenge was closing this perception gap: reaching end consumers—61% of whom rely on social media as their primary channel—while giving partner wineries a simple, credible way to communicate sustainable packaging directly on the bottle.",
         ],
         architecture: {
-          summary:
-            "Parquet observations are queried through DuckDB behind a FastAPI service. The React client owns cross-filter state and requests only the aggregates it needs.",
-          layers: [
-            {
-              label: "Data",
-              detail:
-                "Heterogeneous observations are normalised into partitioned Parquet with a versioned schema and calibration metadata.",
-            },
-            {
-              label: "Query",
-              detail:
-                "FastAPI exposes typed aggregate endpoints; DuckDB handles wide time-range scans without loading raw data into the browser.",
-            },
-            {
-              label: "Interface",
-              detail:
-                "React with a single cross-filter store, URL-serialised state and Plotly charts tuned for dense scientific series.",
-            },
-            {
-              label: "Provenance",
-              detail:
-                "Each query returns source partitions, schema version and filter state, embedded in every export.",
-            },
-          ],
+          summary: "",
+          layers: [],
         },
         features: [
           {
-            title: "Cross-filtered exploration",
+            title: "Value Proposition & Buyer Persona",
             description:
-              "Brush a time range, isolate an instrument, or select a cycle — every chart and count updates together.",
+              "Mapped Xpür® Vintage Qork against organic winery pain points—connecting oxidation prevention and brand differentiation with sustainable production goals.",
           },
           {
-            title: "Provenance by default",
+            title: "Trade Fairs & Guided Winery Visits",
             description:
-              "A slide-over panel shows the exact source files, calibration version and filters behind the current view.",
+              "Short-term B2B activation combining educational facility tours with targeted presence at Vinitaly, ProWein, Vinòforum, and wine2wine.",
           },
           {
-            title: "Reproducible exports",
+            title: "Social & Wine-Creator Campaign",
             description:
-              "Download CSV or a publication-ready figure with a citation stub and the query state attached.",
+              "Short-term digital rollout for @amorimcorkitalia featuring behind-the-scenes production reels and collaborations with wine and sustainability creators.",
           },
           {
-            title: "Annotation layer",
+            title: "'Le Foglie Amorim' Scale & QR Code",
             description:
-              "Researchers can pin notes to a time range and share a durable URL with collaborators.",
+              "Long-term 1-to-5 leaf sustainability rating (water, farming method, transport, bottle CO₂, and stopper impact) paired with a buyer's guide and interactive bottle QR code.",
           },
         ],
         impact: [
-          { value: "40 yrs", label: "of observations in one explorable index" },
-          { value: "0 SQL", label: "required to reach a citable dataset" },
-          { value: "100%", label: "exports carrying provenance metadata" },
+          {
+            value: "68%",
+            label:
+              "surveyed consumers favoring a 100% plant-based wine stopper",
+          },
+          {
+            value: "84%",
+            label:
+              "consumers recognizing cork's moderate-to-high impact on wine quality",
+          },
+          {
+            value: "-75% / -90%",
+            label:
+              "energy and CO₂ used by Xpür® supercritical extraction vs. conventional methods",
+          },
         ],
       },
       links: [
         {
-          label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/helios-explorer",
-          icon: "github",
-        },
-        {
-          label: "Data notes",
-          href: "https://github.com/sergiobrancato/helios-explorer#data",
-          icon: "docs",
-        },
-      ],
-    },
-
-    {
-      id: "lumen-design-system",
-      title: "Lumen",
-      subtitle: "Design systems · Scientific software",
-      year: "2025",
-      categories: ["design", "software"],
-      summary:
-        "A design system and documentation layer that gave three research tools one coherent, accessible interface language.",
-      role: "Design systems lead",
-      timeframe: "12 weeks · Product team",
-      tech: ["Figma", "Storybook", "TypeScript", "Radix UI", "Tokens Studio"],
-      accent: "pink",
-      cover: {
-        src: "/projects/lumen-design-system/cover.svg",
-        alt: "Lumen design system cover with component grid, colour tokens and type scale.",
-      },
-      gallery: [
-        {
-          src: "/projects/lumen-design-system/gallery-01.svg",
-          alt: "Lumen component library overview with buttons, fields and data table.",
-          caption: "Components documented by job, not by visual category.",
-        },
-        {
-          src: "/projects/lumen-design-system/gallery-02.svg",
-          alt: "Design token pipeline diagram from Figma to CSS variables.",
-          caption: "One token source, two consumers: Figma and production CSS.",
-        },
-        {
-          src: "/projects/lumen-design-system/gallery-03.svg",
-          alt: "Accessibility annotations for focus states and contrast.",
-          caption: "Accessibility notes ship with the component, not in a separate PDF.",
-        },
-        {
-          src: "/projects/lumen-design-system/gallery-04.svg",
-          alt: "Documentation page layout with usage guidance and code example.",
-          caption: "Usage, misuse and migration guidance sit beside the preview.",
-        },
-      ],
-      caseStudy: {
-        overview: [
-          "Lumen is a design system for a family of scientific analysis tools used by researchers who live in dense interfaces for hours at a time. It covers tokens, React components and the documentation that keeps them honest.",
-          "I led the system end to end: audit, token architecture, component API design, accessibility criteria and the adoption plan for three product teams.",
-        ],
-        challenge: [
-          "Each tool had evolved its own table, filter bar and empty state. Researchers paid the tax: the same action looked different depending on which product they opened.",
-          "Accessibility was inconsistent, especially focus visibility and chart contrast — exactly the details that matter in long analytical sessions.",
-          "Designers and engineers were maintaining parallel component libraries, so drift was guaranteed.",
-        ],
-        architecture: {
-          summary:
-            "A single token source generates Figma styles and CSS variables. React components wrap Radix primitives; Storybook documents usage, accessibility and migration.",
-          layers: [
-            {
-              label: "Tokens",
-              detail:
-                "Semantic tokens for colour, type, spacing, elevation and data visualisation, authored once and published to both Figma and CSS.",
-            },
-            {
-              label: "Components",
-              detail:
-                "TypeScript React components on Radix primitives, with documented states, slots and data-density modes.",
-            },
-            {
-              label: "Documentation",
-              detail:
-                "Storybook pages pair live examples with usage, misuse, keyboard behaviour and accessibility annotations.",
-            },
-            {
-              label: "Quality gates",
-              detail:
-                "Contrast checks, interaction tests and visual regression snapshots run on every pull request.",
-            },
-          ],
-        },
-        features: [
-          {
-            title: "48 documented components",
-            description:
-              "From data tables and filter chips to dialogs and empty states, each with states, API notes and examples.",
-          },
-          {
-            title: "Semantic tokens",
-            description:
-              "Colour and spacing names describe intent, not hex values, making theme changes and data-viz consistency tractable.",
-          },
-          {
-            title: "Accessibility annotations",
-            description:
-              "Focus order, keyboard maps and contrast requirements are part of the component contract.",
-          },
-          {
-            title: "Adoption playbook",
-            description:
-              "A migration guide, codemods where possible, and a weekly open clinic for the three product teams.",
-          },
-        ],
-        impact: [
-          { value: "3", label: "product teams adopted the system" },
-          { value: "40%", label: "fewer UI defects in the pilot release" },
-          { value: "AA", label: "contrast baseline across core components" },
-        ],
-      },
-      links: [
-        {
-          label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/lumen-design-system",
-          icon: "github",
-        },
-        {
-          label: "Storybook",
-          href: "https://sergiobrancato.github.io/lumen-design-system/",
+          label: "Amorim Cork Italia — Xpür®",
+          href: "https://www.amorimcorkitalia.com/xpur",
           icon: "external",
         },
         {
-          label: "Usage guidelines",
-          href: "https://github.com/sergiobrancato/lumen-design-system#usage",
+          label: "Amorim project",
+          href: "/projects/amorim/pam.pdf",
           icon: "docs",
         },
       ],
     },
-
     {
-      id: "cadence-risk",
-      title: "Cadence",
-      subtitle: "FinTech · Private portfolio risk analytics",
+      id: "currency-converter",
+      title: "Currency Converter",
+      subtitle: "Android · Quick Settings utility & expression calculator",
       year: "2026",
-      categories: ["software", "data"],
+      categories: ["software"],
       summary:
-        "A browser-based scenario engine that lets risk analysts explore portfolio outcomes in milliseconds — without portfolio data leaving the machine.",
-      role: "Frontend & WebAssembly engineer",
-      timeframe: "9 weeks · FinTech studio",
-      tech: ["Rust", "WebAssembly", "React", "D3.js", "TypeScript"],
-      accent: "emerald",
+        "An offline-capable Android currency converter with a built-in arithmetic evaluator and a Quick Settings tile for one-tap access from anywhere.",
+      role: "Android developer & UI designer",
+      timeframe: "November 2026 · Personal project",
+      tech: [
+        "Kotlin",
+        "Jetpack Compose",
+        "Material 3",
+        "DataStore",
+        "TileService",
+      ],
+      accent: "silver",
       cover: {
-        src: "/projects/cadence-risk/cover.svg",
-        alt: "Cadence portfolio risk dashboard with distribution curves and scenario controls.",
+        src: "/projects/convert/ui-overview.svg",
+        alt: "Currency Converter Android app showing dual-currency conversion, inline math operators, and dark grey Material 3 cards.",
       },
       gallery: [
         {
-          src: "/projects/cadence-risk/gallery-01.svg",
-          alt: "Cadence scenario workspace with risk distribution and drawdown controls.",
-          caption: "Scenario sliders recompute the distribution locally, not on a server.",
+          src: "/projects/convert/ui-overview.svg",
+          alt: "Main converter interface with inline arithmetic operators and overlapping currency swap button.",
+          caption:
+            "Inline operators let users calculate totals before converting without switching apps.",
         },
         {
-          src: "/projects/cadence-risk/gallery-02.svg",
-          alt: "Monte Carlo simulation controls and performance panel.",
-          caption: "A Rust simulation core compiled to WebAssembly keeps runs private and fast.",
+          src: "/projects/convert/tile.jpeg",
+          alt: "Android Quick Settings panel featuring the custom Currency Converter tile.",
+          caption:
+            "Custom TileService integration places the converter alongside Wi-Fi and Bluetooth.",
         },
         {
-          src: "/projects/cadence-risk/gallery-03.svg",
-          alt: "Portfolio exposure and correlation matrix.",
-          caption: "Exposure and correlation views stay linked to the active scenario.",
-        },
-        {
-          src: "/projects/cadence-risk/gallery-04.svg",
-          alt: "Audit-ready export snapshot of a risk scenario.",
-          caption: "Every export captures assumptions, seeds and model version.",
+          src: "/projects/convert/search.jpeg",
+          alt: "Searchable currency selector supporting TWD, EUR, DKK, and global reference rates.",
+          caption:
+            "Searchable currency selection with automatic persistence of the last-used pair.",
         },
       ],
       caseStudy: {
         overview: [
-          "Cadence is a private scenario-analysis workspace for portfolio risk. Analysts can stress a portfolio, inspect outcome distributions and export the assumptions behind a decision — entirely in the browser.",
-          "I built the WebAssembly simulation layer and the visual analytics interface, working with a former risk analyst on the domain model.",
+          "Currency Converter is a lightweight Android utility designed to remove friction from everyday price checks while traveling or living abroad. Instead of unlocking the phone, hunting for an app, and juggling a separate calculator, users can pull down the Quick Settings shade and convert expressions in one step.",
+          "Built in Kotlin and Jetpack Compose with a focus on clean, readable architecture, the app pairs a self-contained math expression parser with local rate caching so conversions work reliably both online and offline.",
         ],
         challenge: [
-          "Scenario analysis in many small firms is batched overnight. By the time results arrive, the conversation has moved on.",
-          "Sending a client portfolio to a third-party compute service raises data-protection questions that are hard to answer and easy to avoid.",
-          "Speed alone is not enough: analysts need to see which assumptions drive the result, and reproduce the run later.",
+          "Real-world conversions rarely involve a single round number—splitting bills, adding tips, or summing items usually forces users to bounce between a calculator and a converter.",
+          "System-level utilities need to launch instantaneously and behave predictably across modern Android versions, including Android 14+ PendingIntent requirements for Quick Settings tiles.",
+          "The codebase needed to stay modular, readable, and easy to customize without relying on bloated third-party math or state-management libraries.",
         ],
         architecture: {
           summary:
-            "A Rust simulation core compiles to WebAssembly and runs in a Web Worker. React owns the scenario state; D3 renders distributions without blocking input.",
+            "Single-module MVVM architecture using StateFlow and Jetpack Compose, separating the expression parser, DataStore preferences, and Quick Settings TileService into clean, self-contained layers.",
           layers: [
             {
-              label: "Simulation core",
+              label: "UI & Theme",
               detail:
-                "Rust models correlated asset returns, seeded Monte Carlo runs and drawdown statistics, compiled to WASM with a small typed boundary.",
+                "Jetpack Compose interface styled with a neutral dark grey and black Material 3 palette, overlapping swap controls, and 2-decimal display rounding.",
             },
             {
-              label: "Scheduling",
+              label: "Math Parser",
               detail:
-                "A dedicated Web Worker keeps the main thread free; results stream back in chunks so charts update progressively.",
+                "Custom expression evaluator supporting addition, subtraction, multiplication, division, decimals, and nested parentheses with proper operator precedence.",
             },
             {
-              label: "Interface",
+              label: "Persistence",
               detail:
-                "React scenario controls with debounced recomputation, D3 distributions and a linked exposure matrix.",
+                "Jetpack DataStore stores the last-selected currency pair, cached exchange rates for offline fallback, and Quick Settings onboarding state.",
             },
             {
-              label: "Privacy",
+              label: "System Tile",
               detail:
-                "CSV import, simulation and export all happen locally. No portfolio payload is ever sent to a server.",
+                "Android TileService with Android 14+ compatible PendingIntent launching and lifecycle tracking via onTileAdded().",
             },
           ],
         },
         features: [
           {
-            title: "Instant scenarios",
+            title: "Quick Settings tile access",
             description:
-              "Adjust horizon, confidence and allocation weights and watch the outcome distribution recompute in milliseconds.",
+              "Pin the converter directly to Android's Quick Settings panel for instant access from any screen.",
           },
           {
-            title: "Explainable risk",
+            title: "Built-in arithmetic evaluator",
             description:
-              "Contribution-to-risk views show which holdings and correlations are driving the tail, not just the headline number.",
+              "Type expressions using +, −, ×, ÷, and parentheses directly in the amount field with real-time conversion.",
           },
           {
-            title: "Local-first privacy",
+            title: "Offline-first rate caching",
             description:
-              "A strict no-upload model makes the tool usable with sensitive client data.",
+              "Fetches live reference rates (including TWD, EUR, and DKK) and falls back automatically to cached rates without a connection.",
           },
           {
-            title: "Reproducible exports",
+            title: "Persistent currency memory",
             description:
-              "A scenario snapshot captures inputs, RNG seed, model version and timestamp for later review.",
+              "Remembers the last currency pair used and displays clean 2-decimal totals paired with 6-decimal unit exchange rates.",
           },
         ],
-        impact: [
-          { value: "40 ms", label: "median local recompute for a 500-asset scenario" },
-          { value: "0 bytes", label: "of portfolio data sent to a server" },
-          { value: "5×", label: "more scenarios explored per review session" },
-        ],
+        impact: [],
       },
       links: [
         {
           label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/cadence-risk",
+          href: "https://github.com/sergiobrancato/Converter",
           icon: "github",
         },
         {
-          label: "Model notes",
-          href: "https://github.com/sergiobrancato/cadence-risk#model",
+          label: "Setup & architecture",
+          href: "https://github.com/sergiobrancato/Converter#readme",
           icon: "docs",
-        },
-        {
-          label: "Live demo",
-          href: "https://sergiobrancato.github.io/cadence-risk/",
-          icon: "external",
         },
       ],
     },
 
     {
-      id: "field-notes",
-      title: "Field Notes",
-      subtitle: "Research communication · Interactive publishing",
-      year: "2025",
-      categories: ["design", "data"],
+      id: "ettomio-ecommerce-seo",
+      title: "Ettomio",
+      subtitle: "E-Commerce strategy · SEO & digital marketing",
+      year: "2023",
+      categories: ["design"],
       summary:
-        "A scrollytelling platform that turns dense research into an explorable narrative — accessible, citable and authorable without a frontend team.",
-      role: "Designer & frontend engineer",
-      timeframe: "10 weeks · Independent",
-      tech: ["Next.js", "MDX", "Three.js", "D3.js", "Content design"],
+        "An end-to-end e-commerce usability audit, SEO site architecture redesign, and full-funnel paid media strategy for Ettomio, an Italian sustainable Montessori children's furniture brand.",
+      role: "E-Commerce & SEO strategist",
+      timeframe: "Team of 3 · Academic project",
+      tech: [
+        "SEO",
+        "Google Ads",
+        "Meta Ads",
+        "Google Trends",
+        "Looker Studio",
+        "UX Audit",
+      ],
       accent: "blue",
       cover: {
-        src: "/projects/field-notes/cover.svg",
-        alt: "Field Notes interactive research story with topographic lines and citation cards.",
+        src: "/projects/ettomio/ettomio.png",
+        alt: "Ettomio e-commerce and SEO strategy cover featuring Montessori house-bed product imagery and search architecture.",
       },
       gallery: [
         {
-          src: "/projects/field-notes/gallery-01.svg",
-          alt: "Field Notes reading view with narrative column and figure annotation.",
-          caption: "The narrative stays readable; interaction is an enhancement, not a toll gate.",
-        },
-        {
-          src: "/projects/field-notes/gallery-02.svg",
-          alt: "Scrollytelling scene with a map transforming alongside the text.",
-          caption: "Scenes are declared in MDX with accessible text alternatives.",
-        },
-        {
-          src: "/projects/field-notes/gallery-03.svg",
-          alt: "Citation hover card showing source metadata.",
-          caption: "Citations resolve to structured sources, not dead-end footnotes.",
-        },
-        {
-          src: "/projects/field-notes/gallery-04.svg",
-          alt: "Authoring workflow from Markdown to static publication.",
-          caption: "A researcher can publish a story without touching a component.",
+          src: "/projects/ettomio/ettomio.png",
+          alt: "Competitive usability heatmap comparing Ettomio against four competitors across catalog navigation and checkout.",
+          caption:
+            "Usability benchmarking revealed strong catalog navigation alongside conversion friction in the checkout flow.",
         },
       ],
       caseStudy: {
         overview: [
-          "Field Notes is a publishing platform for research that deserves more than a PDF. It combines long-form narrative, interactive figures and structured citations, then exports a fast static site.",
-          "I designed the reading experience and built the MDX pipeline, figure primitives and citation system. The test case was a real environmental research story.",
+          "Ettomio is an Italian brand crafting sustainable, Made-in-Italy Montessori children's furniture—from evolutionary house beds and foldable learning towers to natural textiles and futons. Our team developed a full-funnel e-commerce and digital marketing strategy to align organic discovery with paid acquisition.",
+          "Working alongside Andrea Dallatorre and Francesco Pettenello, I contributed across competitive UX benchmarking, keyword and search-volume analysis, semantic site architecture, SEO editorial planning, and multi-channel media budgeting.",
         ],
         challenge: [
-          "Research communication often forces a choice: a readable article or an interactive explorable — rarely both, and almost never with a credible citation trail.",
-          "Interactive stories frequently break keyboard navigation, screen readers and print. Accessibility is usually added after the animation budget is spent.",
-          "Researchers do not have time to become frontend engineers. The authoring format had to be plain text with guardrails.",
+          "Competitive usability benchmarking against four industry rivals showed that while Ettomio outperformed peers in catalog navigation, major friction persisted in the checkout process.",
+          "Comparing 2022 website sessions and revenue against Google Trends brand interest exposed clear misalignments—pointing to tracking inaccuracies and missed opportunities to capture seasonal demand peaks.",
+          "High-intent product lines needed stronger unbranded search visibility and an informational content structure capable of educating parents on Montessori principles and sustainability.",
         ],
         architecture: {
-          summary:
-            "MDX content is compiled at build time. A small registry of figure components, citation data and scroll scenes gives authors power without bespoke code.",
-          layers: [
-            {
-              label: "Content",
-              detail:
-                "MDX with frontmatter, typed citation keys and a limited set of narrative components documented in the author guide.",
-            },
-            {
-              label: "Figures",
-              detail:
-                "D3 and Three.js primitives receive data and a text description; every interactive figure has a static fallback.",
-            },
-            {
-              label: "Reading layer",
-              detail:
-                "Next.js static export, progressive enhancement for scroll scenes, print styles and reduced-motion variants.",
-            },
-            {
-              label: "Citations",
-              detail:
-                "A structured bibliography powers hover cards, reference lists and machine-readable metadata.",
-            },
-          ],
+          summary: "",
+          layers: [],
         },
         features: [
           {
-            title: "MDX authoring",
+            title: "Competitive usability matrix",
             description:
-              "Researchers write Markdown, choose from documented figure components and publish through a normal git workflow.",
+              "Evaluated catalog navigation and checkout flows against four competitors, isolating checkout UX as the primary conversion bottleneck.",
           },
           {
-            title: "Scrollytelling with guardrails",
+            title: "Semantic tree & child-age filter",
             description:
-              "Scenes declare start and end states; reduced-motion and no-JS readers get the full argument in a static layout.",
+              "Renamed and clustered categories around search intent while introducing a child-age selector during onboarding to personalize product discovery.",
           },
           {
-            title: "Structured citations",
+            title: "Google Ads & Meta creative system",
             description:
-              "Hover cards, reference lists and metadata all draw from one bibliography, so sources cannot drift.",
+              "Designed Exact/Phrase brand campaigns and Montessori bed ad groups on Google Ads, paired with emotion-led Facebook and Instagram Feed/Stories ads.",
           },
           {
-            title: "Print and screen-reader parity",
+            title: "12-month promotional roadmap",
             description:
-              "Every figure ships with a caption and text alternative; the print stylesheet preserves the narrative.",
+              "Synchronized paid channels with seasonal peaks—including Winter/Summer Sales, Mother's Day free shipping, influencer drops, the 'Tendi un ramo all'Amazzonia' charity initiative, and Black Friday.",
           },
         ],
         impact: [
-          { value: "2.4×", label: "pilot read-through versus the PDF version" },
-          { value: "100%", label: "figures with text alternatives" },
-          { value: "0", label: "bespoke components needed per story" },
+          {
+            value: "64% / 36%",
+            label: "demand creation vs. demand capture media split",
+          },
+          {
+            value: "61.7%",
+            label: "search volume in Montessori beds & learning towers",
+          },
+          {
+            value: "5",
+            label: "SEO editorial pillars built on brand strengths",
+          },
         ],
       },
       links: [
         {
-          label: "GitHub repository",
-          href: "https://github.com/sergiobrancato/field-notes",
-          icon: "github",
-        },
-        {
-          label: "Live story",
-          href: "https://sergiobrancato.github.io/field-notes/",
+          label: "Client website",
+          href: "https://ettomio.com",
           icon: "external",
         },
         {
-          label: "Author guide",
-          href: "https://github.com/sergiobrancato/field-notes#authoring",
+          label: "Case study deck (PDF)",
+          href: "/projects/ettomio/etto.pdf",
           icon: "docs",
         },
       ],

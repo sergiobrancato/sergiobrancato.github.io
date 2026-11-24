@@ -14,7 +14,7 @@ import { profile } from "@/content/profile";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-/** Origin only, e.g. https://sergiobrancato.dev or https://username.github.io */
+/** https://username.github.io */
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? profile.seo.url
 ).replace(/\/$/, "");
