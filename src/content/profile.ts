@@ -47,14 +47,14 @@ export const profile: Profile = {
     coordinates: "55.6761° N · 12.5683° E",
   },
 
-  email: "hello@sergiobrancato.dev",
-  cvPath: "/cv/Sergio_Brancato_CV.pdf",
+  email: "sergiobrancato.jobs@gmail.com",
+  cvPath: "/cv/Sergio_Brancato.pdf",
 
   availability: {
     tone: "available",
     label: "Open to work",
     statusLabel: "Open",
-    shortLabel: "Available 2027",
+    shortLabel: "Available",
     detail: "2027 · Internship or thesis · Copenhagen or relocation",
   },
 
@@ -143,14 +143,7 @@ export const profile: Profile = {
     { name: "English", level: "C1" },
   ],
 
-  mobility: [
-    "Denmark",
-    "Switzerland",
-    "Italy",
-    "Netherlands",
-    "France",
-    "Wider Europe",
-  ],
+  mobility: ["Copenhagen, Denmark", "Europe-wide (relocation open)"],
 
   targetSectors: [
     "Aerospace",
@@ -169,13 +162,13 @@ export const profile: Profile = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/sergiobrancato",
+      href: "https://www.linkedin.com/in/sergio-b-16a54a36b/",
       icon: "linkedin",
       note: "Experience, education & references",
     },
     {
       label: "Email",
-      href: "mailto:hello@sergiobrancato.dev",
+      href: "sergiobrancato.jobs@gmail.com",
       icon: "mail",
       note: "Best for internship & thesis enquiries",
     },
@@ -185,11 +178,10 @@ export const profile: Profile = {
     index: "05",
     label: "Contact",
     heading: "Let’s build something",
-    headingAccent: "consequential.",
+    headingAccent: ".",
     description:
-      "I’m looking for a team where software quality, clear thinking and real-world impact are treated as one problem. If that sounds like yours, I’d like to hear about it.",
-    availabilityNote:
-      "Open to technical internships and MSc thesis collaborations across Europe — from Copenhagen to Zurich, Amsterdam, Paris and beyond.",
+      "If you have a project or questions, I'd love to hear them from you. Reach out via email or LinkedIn, and I'll get back to you as soon as possible.",
+    availabilityNote: "",
     directLabel: "Direct line",
     responseNote: "I usually reply within two working days.",
     emailLabel: "Email",
@@ -199,8 +191,7 @@ export const profile: Profile = {
     cvNote: "PDF · Updated 2026",
     form: {
       title: "Send a note",
-      description:
-        "A short message is enough. Tell me the team, the problem and the timeline.",
+      description: "A short message is enough.",
       nameLabel: "Name",
       namePlaceholder: "Your name",
       emailLabel: "Email",
@@ -209,8 +200,8 @@ export const profile: Profile = {
       messagePlaceholder:
         "Hi Sergio — we’re working on … and we think you’d be a good fit for …",
       submitLabel: "Open email draft",
-      note: "This static form opens your email client. No data leaves your browser.",
-      privacyNote: "No backend · No tracking",
+      note: "This will open your email client with a prefilled draft. You can edit it before sending.",
+      privacyNote: "",
       checklistLabel: "A useful first note includes",
       checklist: [
         "The team, mission and what success looks like",
@@ -224,13 +215,13 @@ export const profile: Profile = {
   },
 
   footer: {
-    tagline: "Software, systems & the words that hold them together.",
-    note: "Designed and built in Copenhagen · Next.js · TypeScript · Tailwind CSS · Framer Motion",
+    tagline: "",
+    note: "",
     backToTop: "Back to top",
   },
 
   seo: {
-    url: "https://sergiobrancato.dev",
+    url: "https://github.io/sergiobrancato",
     title: "Sergio Brancato — Software Engineer & Systems Thinker",
     description:
       "MSc Software Design student at ITU Copenhagen with a BSc in Communication. Building clear, resilient software for aerospace, defence, cybersecurity, FinTech and scientific research. Open to European internships and MSc thesis collaborations.",
